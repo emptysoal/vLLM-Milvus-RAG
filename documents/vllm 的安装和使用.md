@@ -51,7 +51,7 @@ docker run -it --gpus all --shm-size=32G -v /home/dhd:/workspace -p 32804:8000 v
 - 运行：
 
 ```bash
-vllm serve /workspace/models/Qwen2.5-7B-Instruct --dtype=half --tensor-parallel-size 4 --enable-auto-tool-choice --tool-call-parser hermes --trust-remote-code
+vllm serve /workspace/models/Qwen2.5-7B-Instruct --dtype=bfloat16 --tensor-parallel-size 4 --enable-auto-tool-choice --tool-call-parser hermes --trust-remote-code --gpu-memory-utilization=0.9
 ```
 
 ## 三. 访问服务
@@ -99,5 +99,6 @@ print("Chat response:", chat_response)
 运行前把上面的 `<ip>` 换成 `vllm` 服务所在宿主机的 `ip`
 
 ## 四. 参考链接
+
 
 - https://qwen.readthedocs.io/en/v2.5/deployment/vllm.html
