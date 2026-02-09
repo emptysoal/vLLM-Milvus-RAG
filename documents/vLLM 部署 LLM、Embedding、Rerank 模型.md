@@ -12,7 +12,7 @@
 - 启动服务
 
 ```bash
-vllm serve /workspace/models/Qwen2.5-3B-Instruct --dtype=float16 --tensor-parallel-size 2 --enable-auto-tool-choice --tool-call-parser hermes --trust-remote-code
+vllm serve /workspace/models/Qwen2.5-7B-Instruct --dtype=bfloat16 --tensor-parallel-size 4 --enable-auto-tool-choice --tool-call-parser hermes --trust-remote-code --gpu-memory-utilization=0.9
 ```
 
 - 测试服务
@@ -50,7 +50,7 @@ print("Chat response:", chat_response)
 - 启动服务
 
 ```bash
-vllm serve /workspace/models/BAAI/bge-m3 --dtype=float16 --trust-remote-code
+vllm serve /workspace/models/BAAI/bge-m3 --dtype=bfloat16 --trust-remote-code
 ```
 
 - 测试服务
@@ -85,7 +85,7 @@ print(f"每个向量的维度：{len(embeddings[0])}")  # BGE-M3输出1024维向
 - 启动服务
 
 ```bash
-vllm serve /workspace/models/BAAI/bge-reranker-v2-m3 --dtype=float16 --trust-remote-code
+vllm serve /workspace/models/BAAI/bge-reranker-v2-m3 --dtype=bfloat16 --trust-remote-code
 ```
 
 - 测试服务
@@ -150,4 +150,5 @@ curl -X 'POST' \
 ## 四. 参考
 
 - https://vllm.hyper.ai/docs/inference-and-serving/openai_compatible_server
+
 - https://github.com/vllm-project/vllm/tree/v0.8.0/examples/online_serving
